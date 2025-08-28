@@ -20,3 +20,13 @@ config.h
 config.log
 config.status
 stamp-h
+*.o
+engine/libengine.a
+interface/gnugo
+patterns/joseki
+patterns/libpatterns.a
+patterns/mkeyes
+patterns/mkpat
+sgf/libsgf.a
+sgf/sgfgen
+utils/libutils.a
