@@ -112,7 +112,7 @@ void
 play_gtp()
 {
   char *known_commands="\nboardsize\ngenmove\nhelp\nknown_command"
-  "\nkomi\nlist_commands\nname\nplay\nprotocol_version\nquit\nversion\n";
+  "\nkomi\nlist_commands\nname\nplay\nprotocol_version\nquit\nversion\nfinal_score\n";
 
 
   int pass = 0;  /* two passes and its over */
@@ -198,6 +198,23 @@ play_gtp()
       int size =  atoi(str);
       set_boardsize(size);
       replyf("");
+      continue;
+    } else if (strcmp(command, "final_score") == 0) {
+      int white_points,black_points;
+      float score;
+      evaluate_territory(&white_points,&black_points);
+      score=black_points-white_points-black_captured+white_captured-get_komi();
+
+      if (score>0) {
+        replyf("B+%3.1f", score);
+      }
+      else if (score<0) {
+        replyf("W+%3.1f", -score);
+      }
+      else {
+        replyf("0");
+      }
+
       continue;
     }
 
