@@ -384,6 +384,7 @@ main(int argc, char *argv[])
 			  each time. If it is set using -r, GNU Go will play the
 			  same game each time. (Change seed to get a different
 			  game). */
+  int seed_specified=0;
 
 
    /* Initialize the entire hashing system. */
@@ -416,7 +417,7 @@ main(int argc, char *argv[])
 	 break;
 	 
        case 'b' : benchmark = atoi(optarg); playmode=MODE_SOLO; break;
-       case 'r' : seed = atoi(optarg); break;
+       case 'r' : seed = atoi(optarg); seed_specified=1; break;
        case 'p' : set_style(optarg); break;
        case 's' : showstack = 1; break;
        case 'S' : showstatistics = 1; break;
@@ -605,7 +606,7 @@ main(int argc, char *argv[])
    /* start random number seed */
    if (!seed) seed=time(0);
    srand(seed);
-   set_seed(seed);
+   set_seed(seed, seed_specified);
 
 #if 0
 Done in init_board()

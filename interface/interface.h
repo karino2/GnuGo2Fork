@@ -72,7 +72,8 @@ int set_computer_player(int);
 int is_computer_player(int);
 int switch_computer_player(void);
 int get_seed(void);
-int set_seed(int);
+int set_seed(int, int);
+void update_seed(void);
 const char * get_outfile(void);
 int set_outfile(const char *);
 

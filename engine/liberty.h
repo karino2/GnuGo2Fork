@@ -366,6 +366,7 @@ void endgame(void);
 /* various different strategies for finding a move */
 
 int fuseki (int *i, int *j, int *val, int *equal_moves, int color);
+void init_fuseki(void);
 int semeai (int *i, int *j, int *val, int *equal_moves, int color);
 void small_semeai(void);
 void small_semeai_analyzer(int, int, int, int);

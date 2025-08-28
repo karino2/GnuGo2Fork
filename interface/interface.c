@@ -33,6 +33,7 @@
 #include <string.h>
 #include <assert.h>
 #include <ctype.h>
+#include <time.h>
 #include "../sgf/sgf.h"
 
 /* FIXME : this should not need to include liberty.h ! */
@@ -65,6 +66,7 @@ struct game_info {
   float komi;
   int to_move; /* whose move it currently is*/
   int seed;	/* random seed */
+  int seed_specified;
   int computer_player;	/* BLACK, WHITE, or EMPTY (used instead of BOTH) */
   char outfile[128];
 };
@@ -102,6 +104,7 @@ int init_ginfo()
   ginfo->komi=5.5;
   ginfo->to_move=BLACK;
   ginfo->computer_player=WHITE;
+  ginfo->seed_specified=0;
   return 1;
 }
 
@@ -250,11 +253,22 @@ get_seed()
 }
 
 int 
-set_seed(int num)
+set_seed(int num, int specified)
 {
   if(num<0) return 0;
   ginfo->seed = num;
+  ginfo->seed_specified = specified;
   return 1;
+}
+
+void
+update_seed()
+{
+  if (ginfo->seed_specified)
+    return;
+  int seed=time(0);
+  srand(seed);
+  set_seed(seed, 0);  
 }
 
 const char * 
@@ -334,6 +348,18 @@ clear_board(board_t **board)
     {
       memset(board,EMPTY,MAX_BOARD*MAX_BOARD*sizeof(board_t));
     }
+  
+  init_fuseki();
+  clear_wind_cache();
+  clear_safe_move_cache();
+  update_seed();
+  black_captured = 0;
+  white_captured = 0;
+  last_move_i = -1;
+  last_move_j = -1;
+  ko_i = -1;
+  ko_j = -1;
+
   return 1;
 }
 

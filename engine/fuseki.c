@@ -1515,6 +1515,13 @@ int fuseki(int *i, int *j, int *val, int *equal_moves, int color)
   return found_one;
 }
 
+void init_fuseki(void)
+{
+  firstmove = 1;
+  corner_done = 0;
+  fuseki_ended = 0;
+}
+
 
 /***********************************************************************
 
