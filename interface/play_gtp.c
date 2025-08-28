@@ -277,7 +277,7 @@ play_gtp()
         pass++;
         switch_tomove();
 
-        replyf("PASS");
+        replyf("pass");
         continue;
       }
 
