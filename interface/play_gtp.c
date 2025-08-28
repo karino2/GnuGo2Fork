@@ -221,7 +221,7 @@ play_gtp()
       char* color = strtok(NULL, " \t\n");            // color is ignored
       char *str = strtok(NULL, " \t\n");
 
-      if (strcmp(str, "pass") == 0){
+      if ((strcmp(str, "pass") == 0) || strcmp(str, "PASS") == 0){
         pass++;
         updateboard(get_boardsize(), get_boardsize(), get_tomove());
         inc_movenumber();
