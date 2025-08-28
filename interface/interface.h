@@ -42,6 +42,7 @@ struct SGFNode;  /* forward decl to keep gcc happy */
 void play_ascii(char * filename);
 void play_ascii_emacs(char * filename);
 void play_gmp(void);
+void play_gtp(void);
 void play_solo(int);
 void play_test(struct SGFNode *, enum testmode);
 int load_sgf_file(struct SGFNode *, const char *untilstr);

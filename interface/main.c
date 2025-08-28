@@ -191,6 +191,7 @@ enum mode {
   MODE_LOAD_AND_PRINT,
   MODE_SOLO,
   MODE_TEST,
+  MODE_GTP,
   MODE_DECIDE_STRING
 };
 
@@ -482,6 +483,7 @@ main(int argc, char *argv[])
 	 if (strcmp(optarg,"ascii")==0) playmode = MODE_ASCII;
 	 else if (strcmp(optarg,"emacs")==0) playmode = MODE_ASCII_EMACS;
 	 else if (strcmp(optarg,"gmp")==0) playmode = MODE_GMP;
+	 else if (strcmp(optarg,"gtp")==0) playmode = MODE_GTP;
 	 else if (strcmp(optarg,"test")==0) playmode = MODE_TEST;
 	 else {
 	   fprintf(stderr,"Invalid mode selection: %s\n",optarg);
@@ -649,6 +651,11 @@ Done in init_board()
        if(!sgf_root)
          sgfCreateHeaderNode(komi);
        play_gmp();
+       break;
+     case MODE_GTP:
+       if(!sgf_root)
+         sgfCreateHeaderNode(komi);
+       play_gtp();
        break;
      case MODE_SOLO:
        if(!sgf_root)

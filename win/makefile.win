@@ -200,6 +200,7 @@ INTERFACE_OBJS= \
   $(OBJDIR)\main.obj \
   $(OBJDIR)\play_ascii.obj \
   $(OBJDIR)\play_gmp.obj \
+  $(OBJDIR)\play_gtp.obj \
   $(OBJDIR)\play_solo.obj \
   $(OBJDIR)\play_test.obj
 

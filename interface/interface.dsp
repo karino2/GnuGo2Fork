@@ -105,6 +105,10 @@ SOURCE=.\play_gmp.c
 # End Source File
 # Begin Source File
 
+SOURCE=.\play_gtp.c
+# End Source File
+# Begin Source File
+
 SOURCE=.\play_solo.c
 # End Source File
 # Begin Source File

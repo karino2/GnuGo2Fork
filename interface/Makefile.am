@@ -24,6 +24,7 @@ gnugo_SOURCES = \
 	interface.c \
 	play_ascii.c \
 	play_gmp.c \
+	play_gtp.c \
 	play_solo.c \
 	play_test.c \
 	gmp.c

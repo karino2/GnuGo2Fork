@@ -88,7 +88,7 @@ INCLUDES =  	-I$(top_srcdir)/sgf 	-I$(top_srcdir)/engine 	-I$(top_srcdir)/utils
 LDADD =  	../engine/libengine.a 	../patterns/libpatterns.a 	../sgf/libsgf.a 	../utils/libutils.a
 
 
-gnugo_SOURCES =  	main.c 	interface.c 	play_ascii.c 	play_gmp.c 	play_solo.c 	play_test.c 	gmp.c
+gnugo_SOURCES =  	main.c 	interface.c 	play_ascii.c 	play_gmp.c play_gtp.c 	play_solo.c 	play_test.c 	gmp.c
 
 
 AIXOPTS = -O -qmaxmem=16384 -qro -qroconst -qinfo
@@ -103,7 +103,7 @@ DEFS = @DEFS@ -I. -I$(srcdir) -I..
 CPPFLAGS = @CPPFLAGS@
 LDFLAGS = @LDFLAGS@
 LIBS = @LIBS@
-gnugo_OBJECTS =  main.o interface.o play_ascii.o play_gmp.o play_solo.o \
+gnugo_OBJECTS =  main.o interface.o play_ascii.o play_gmp.o play_gtp.o play_solo.o \
 play_test.o gmp.o
 gnugo_LDADD = $(LDADD)
 gnugo_DEPENDENCIES =  ../engine/libengine.a ../patterns/libpatterns.a \
