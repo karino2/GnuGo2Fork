@@ -49,12 +49,13 @@ target_include_directories(patterns PRIVATE
 )
 
 
-add_library(gnugo2 SHARED android/dummy.c)
+add_library(gnugo2 SHARED android/dummy.c android/jni_bridge.c interface/interface.c)
 target_include_directories(gnugo2 PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/android
     ${CMAKE_CURRENT_SOURCE_DIR}/engine
     ${CMAKE_CURRENT_SOURCE_DIR}/utils
     ${CMAKE_CURRENT_SOURCE_DIR}/sgf
+    ${CMAKE_CURRENT_SOURCE_DIR}/interface
 )
 
 
