@@ -30,3 +30,4 @@ patterns/mkpat
 sgf/libsgf.a
 sgf/sgfgen
 utils/libutils.a
+build
