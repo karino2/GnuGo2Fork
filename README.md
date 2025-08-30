@@ -14,3 +14,4 @@ Original code is from above page, ftp serv, gnugo-2.6.tar.gz.
 
 - Latest environment build (for Mac only for a while)
 - GTP 2.0 support
+- Android NDK support
